@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import Task from './Task/Task';
 
 class App extends Component {
@@ -43,53 +44,48 @@ class App extends Component {
     }
 
     render() {
-        const style = {
-            backgroundColor: 'green',
-            color: 'white',
-            border: '1px solid blue',
-            padding: '8px',
-            cursor: 'pointer',
-        };
 
         let persons = null;
+        let btnClass = '';
 
         if (this.state.showPersons) {
             persons = (
                 <div>
                     {this.state.persons.map((person, index) => {
                         return (
-                            <Person
-                                key={person.id}
-                                click={() => this.deletePersonHandler(index)}
-                                changed={(event) => this.nameChangedHandler(event, person.id)}
-                                name={person.name}
-                                age={person.age} />
+                            <ErrorBoundary key={person.id} >
+                                <Person
+                                    click={() => this.deletePersonHandler(index)}
+                                    changed={(event) => this.nameChangedHandler(event, person.id)}
+                                    name={person.name}
+                                    age={person.age} />
+                            </ErrorBoundary>
                         )
                     })}
                 </div>
             );
-            style.backgroundColor = 'red';
+            btnClass = classes.Red;
         }
 
-        const classes = [];
+        const assignedClassed = [];
         if(this.state.persons.length <= 2) {
-            classes.push('red');
+            assignedClassed.push(classes.red);
         }
 
         if(this.state.persons.length <= 1) {
-            classes.push('bold');
+            assignedClassed.push(classes.bold);
         }
 
 
 
         return (
-            <div className="App">
+            <div className={classes.App}>
                     <h1>Hello!</h1>
                     <button
-                        style={style}
+                        className={btnClass}
                         onClick={() => this.togglePersonHandler()}>Toggle persons
                     </button>
-                    <p className={classes.join(' ')}>Test style classes</p>
+                    <p className={assignedClassed.join(' ')}>Test style classes</p>
                     {persons}
             </div>
         );
