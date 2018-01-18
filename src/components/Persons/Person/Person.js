@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import classes from './Person.css';
 import WithClass from '../../../hoc/WithClass';
 
+import PropTypes from 'prop-types';
+
 class Person extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +17,8 @@ class Person extends Component {
     componentDidMount() {
         console.log('Personnnn.js inside componentDidMount');
     }
-    render () {
+
+    render() {
         console.log('Personnnn.js inside render');
         return (
             <WithClass classes={classes.Person}>
@@ -31,5 +34,12 @@ class Person extends Component {
         ]*/
     }
 }
+
+Person.propTypes = {
+    click: PropTypes.func,
+    name: PropTypes.string,
+    age: PropTypes.number,
+    chnaged: PropTypes.func
+};
 
 export default Person;
