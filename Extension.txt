@@ -1,0 +1,5 @@
+1. npm install --save radium
+radium - for managing inline styles on React component.
+
+2. npm install --save prop-types
+prop-types = types checking.
