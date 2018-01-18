@@ -1,12 +1,13 @@
 import React from 'react';
 import classes from './Cockpit.css';
+import Aox from '../../hoc/Aox';
 
 const Cockpit = (props) => {
 
-    let btnClass = '';
+    let btnClass = classes.Button;
 
     if (props.showPersons) {
-        btnClass = classes.Red;
+        btnClass = [classes.Button, classes.Red].join(' ');
     }
 
 
@@ -20,14 +21,14 @@ const Cockpit = (props) => {
     }
 
     return (
-        <div className={classes.Cockpit}>
+        <Aox>
             <h1>{props.appTitle}</h1>
             <button
                 className={btnClass}
                 onClick={() => props.clicked()}>Toggle persons
             </button>
             <p className={assignedClassed.join(' ')}>Test style classes</p>
-        </div>
+        </Aox>
     );
 }
 
