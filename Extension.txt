@@ -2,4 +2,9 @@
 radium - for managing inline styles on React component.
 
 2. npm install --save prop-types
-prop-types = types checking.
+prop-types - types checking.
+
+3. npm install axios --save
+axios - make http requests to server
+
+4. npm install --save react-router react-router-dom
