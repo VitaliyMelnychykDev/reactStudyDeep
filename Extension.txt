@@ -13,3 +13,5 @@ axios - make http requests to server
 
 npm install --save react-redux
 react-redux - connect react with redux
+
+mpm install --save redux-thunk
