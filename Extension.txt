@@ -10,3 +10,6 @@ axios - make http requests to server
 4. npm install --save react-router react-router-dom
 
 5. npm install --save redux
+
+npm install --save react-redux
+react-redux - connect react with redux
